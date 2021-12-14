@@ -2,10 +2,12 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
 
-const paletteContainer = document.querySelector('.gallery');
+const paletteContainer = document.querySelector('div.gallery');
 const cardsMarkup = createCardsMarkup(galleryItems);
-    paletteContainer.insertAdjacentHTML('beforeend',cardsMarkup)
-console.log(createCardsMarkup(galleryItems));
+paletteContainer.insertAdjacentHTML('beforeend', cardsMarkup)
+console.log(createCardsMarkup('galleryItems'));
+
+
 
 function createCardsMarkup(cards) {
   return galleryItems.map(({ preview, original, description }) => {
@@ -23,27 +25,18 @@ function createCardsMarkup(cards) {
     `;
     })
     .join('');
+};
+
+paletteContainer.addEventListener('click',onImageClick)
+function onImageClick(e) {
+    console.log(e.target)
+    e.preventDefault();
+
+    basicLightbox.create(`
+   <img width="" height="" src="${e.target.dataset.source}" alt = "${e.target.alt}">
+
+	`).show()
+
 }
 
 
-
-
-    
-
-
-
-
-// const cardsMarkup = createGalaryCards(cards);
-// console.log(cardsMarkup);
-
-// galeryEl.insertAdjacentElement('beforeend', cardsMarkup);
-
-// galeryEl.addEventListener('click')
-// const galeryEl = document.querySelector('.gallery')
-// console.log(galeryEl)
-
-// const galeryItemEl = document.querySelector('.gallery__item')
-// console.log(galeryItemEl);
-
-// const galeryItemLinkEl = document.querySelector('.gallery__link')
-// console.log(galeryItemLinkEl);
