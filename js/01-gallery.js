@@ -29,14 +29,21 @@ function createCardsMarkup(cards) {
 
 paletteContainer.addEventListener('click',onImageClick)
 function onImageClick(e) {
-    console.log(e.target)
-    e.preventDefault();
+  console.log(e.target)
+  e.preventDefault();
 
     basicLightbox.create(`
    <img width="" height="" src="${e.target.dataset.source}" alt = "${e.target.alt}">
 
-	`).show()
-
+  `).show()
+      
+    
 }
 
 
+
+
+// function ESCclose(evt) {
+//   if (evt.keycode === 'Escape') {
+//     basicLightbox.close();
+//   };};
